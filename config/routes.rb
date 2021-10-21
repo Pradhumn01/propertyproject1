@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "home#index"
   get '/properties_list', to: "properties#property_list"
+  get '/show_user', to: "home#show_user"
   resources :likes
   resources :properties
   devise_for :users

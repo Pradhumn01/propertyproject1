@@ -1,0 +1,15 @@
+<% a=0 %>
+<h1>List of Users</h1>
+<% @like.each do |like| %>
+  <div class="card" style="width: 18rem;">
+    <%=  image_tag(like.property.image) %>
+    <div class="card-body">
+      <h5 class="card-title"> <%= like.property.title %></h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>S.No :</b> <%= a= a+1 %></li>
+      <li class="list-group-item"><b>Name of User :</b> <%= like.user.name %></li>
+    </ul>
+  </div>
+  <br>
+<%end%>
