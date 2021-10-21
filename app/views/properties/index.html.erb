@@ -1,0 +1,23 @@
+<button type="button" class="text-decoration none"class="btn btn-link" ><%= link_to 'Add Property', new_property_path %> </button>
+<br>
+<%  @properties.each do |property| %>
+<br>
+<div class="card" style="width: 18rem;">
+ <%=  image_tag(property.image.present? ? property.image : "https://i.picsum.photos/id/249/536/354.jpg?hmac=-KIW4qA7yddnnD9i-E4Eo9K5EVNuXkj8dLot4MgCs2k") %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= property.title %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Price(rs) :</b> <%= property.price %></li>
+    <li class="list-group-item"><b>Property_size(sf) :</b>  <%= property.property_size %></li>
+    <li class="list-group-item"><b>Deposit : </b> <%= property.deposit %></li>
+  </ul>
+  <div class="card-body">
+   <button type="button" class="btn btn-info" ><%= link_to image_tag("https://img.icons8.com/material-rounded/30/000000/visible.png"),property_path(property)%></button>
+      <button type="button" class="btn btn-warning" ><%= link_to image_tag("https://img.icons8.com/ios-glyphs/30/000000/edit--v1.png"),edit_property_path(property)%></button>
+    <button type="button" class="btn btn-danger" ><%= link_to image_tag("https://img.icons8.com/ios-glyphs/30/000000/delete-sign.png"), property_path(property),method: :delete, data: { confirm: 'Are you sure?' } %></button>
+   </div> 
+</div>
+<% end %>
+
+

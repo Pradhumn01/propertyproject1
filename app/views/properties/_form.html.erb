@@ -1,0 +1,42 @@
+<%= form_with model: property do |form| %>
+  <div>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+    <% property.errors.full_messages_for(:title).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+   <div>
+    <%= form.label :image %><br>
+    <%= form.file_field :image %>
+  </div>
+
+   <div>
+    <%= form.label :property_size %><br>
+    <%= form.text_field :property_size %>
+    <% property.errors.full_messages_for(:property_size).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :price %><br>
+    <%= form.text_field :price %>
+    <% property.errors.full_messages_for(:price).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :deposit%><br>
+    <%= form.text_field :deposit %>
+    <% property.errors.full_messages_for(:deposit ).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+  <br>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

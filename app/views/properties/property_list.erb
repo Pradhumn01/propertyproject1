@@ -1,0 +1,26 @@
+<h1>List of Properties</h1>
+<%  @properties.each do |property| %>
+<br>
+<div class="card" style="width: 18rem;">
+ <%= image_tag property.image if property.image %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= property.title %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Price(rs) :</b> <%= property.price %></li>
+    <li class="list-group-item"><b>Property_size(sf) :</b>  <%= property.property_size %></li>
+    <li class="list-group-item"><b>Deposit : </b> <%= property.deposit %></li>
+  </ul>
+  <div class="card-body">
+    <% like = current_user.likes.find_by(property: property)%>
+    <% if like.nil? %>
+      <%= button_to "Like", likes_path, params: {like: { property_id: property.id }}, method: :post %>
+    <% else %>
+      <%= button_to "Unlike", like_path(like), method: :delete %>
+    <% end %> 
+ 
+  </div> 
+</div>
+<% end %>
+
+

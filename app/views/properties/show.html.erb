@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+  <%= image_tag(@property.image) %>
+  <div class="card-body">
+    <h5 class="card-title"> <%= @property.title %></h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><b>Price(rs) :</b> <%= @property.price %></li>
+    <li class="list-group-item"><b>Property_size(sf) :</b>  <%= @property.property_size %></li>
+    <li class="list-group-item"><b>Deposit : </b> <%= @property.deposit %></li>
+  </ul>
+</div>
+<%= link_to image_tag("https://img.icons8.com/ios-filled/50/000000/circled-left-2.png"), properties_path %>
+
+
